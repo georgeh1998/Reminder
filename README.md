@@ -52,13 +52,11 @@ Google SpreadsheetのデータをLINEに自動送信するGitHub Actions。
 ### 3. GitHub Secretsの登録
 
 ```bash
-gh secret set GOOGLE_SERVICE_ACCOUNT_JSON < service.json
-gh secret set LINE_CHANNEL_ACCESS_TOKEN
-gh secret set LINE_USER_ID
-gh secret set SPREADSHEET_ID
+gh secret set GOOGLE_SERVICE_ACCOUNT_JSON --body "$(cat service.json)"
+gh secret set LINE_CHANNEL_ACCESS_TOKEN --body your_token
+gh secret set LINE_USER_ID --body your_user_id
+gh secret set SPREADSHEET_ID --body your_spreadsheet_id
 ```
-
-> `LINE_CHANNEL_ACCESS_TOKEN`、`LINE_USER_ID`、`SPREADSHEET_ID` は対話形式で入力を求められる。
 
 ### 4. Secretsの確認
 
@@ -69,17 +67,26 @@ gh secret list
 ## ローカル実行（テスト）
 
 ```bash
+# 仮想環境を作成・有効化
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 依存パッケージをインストール
 pip install -r requirements.txt
 
+# 環境変数を設定
 export GOOGLE_SERVICE_ACCOUNT_JSON=$(cat service.json)
 export LINE_CHANNEL_ACCESS_TOKEN=your_token
 export LINE_USER_ID=your_user_id
 export SPREADSHEET_ID=your_spreadsheet_id
 
-python notify.py daily
-python notify.py weekly
-python notify.py monthly   # 末日以外はスキップされる
+# 実行
+python3 notify.py daily
+python3 notify.py weekly
+python3 notify.py monthly   # 末日以外はスキップされる
 ```
+
+> 次回以降は `source .venv/bin/activate` から始めればOK。
 
 ## 手動実行（GitHub Actions）
 
