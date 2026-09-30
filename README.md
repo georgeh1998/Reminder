@@ -9,6 +9,9 @@ Google SpreadsheetのデータをLINEに自動送信するGitHub Actions。
 | `daily.yml` | 毎日 07:00 JST | `Daily` | 【日次共有】 |
 | `weekly.yml` | 毎週日曜 21:00 JST | `Weekly` | 【週次共有】 |
 | `monthly.yml` | 毎月末日 09:00 JST | `Monthly` | 【月次共有】 |
+| `keepalive.yml` | 毎月1日 09:00 JST | - | - |
+
+> `keepalive.yml` は、60日間アクティビティがないとスケジュール実行が無効化されるのを防ぐため、`keepalive.txt` の日付を毎月更新して main に直接コミットする。
 
 ## Spreadsheetの記載方法
 
