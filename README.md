@@ -6,8 +6,8 @@ Google SpreadsheetのデータをLINEに自動送信するGitHub Actions。
 
 | ワークフロー | 実行タイミング | 対象シート | メッセージヘッダー |
 |---|---|---|---|
-| `daily.yml` | 毎日 07:00 JST | `Daily` | 【日次共有】 |
-| `weekly.yml` | 毎週日曜 21:00 JST | `Weekly` | 【週次共有】 |
+| `daily.yml` | 毎日 04:00 JST | `Daily` | 【日次共有】 |
+| `weekly.yml` | 毎週日曜 16:00 JST | `Weekly` | 【週次共有】 |
 | `monthly.yml` | 毎月末日 09:00 JST | `Monthly` | 【月次共有】 |
 | `keepalive.yml` | 毎月1日 09:00 JST | - | - |
 

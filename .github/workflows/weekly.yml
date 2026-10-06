@@ -2,7 +2,7 @@ name: Weekly Reminder
 
 on:
   schedule:
-    - cron: "0 12 * * 0"  # UTC 12:00 Sunday = JST 21:00 Sunday
+    - cron: "0 7 * * 0"  # UTC 07:00 Sunday = JST 16:00 Sunday
   workflow_dispatch:
 
 jobs:
